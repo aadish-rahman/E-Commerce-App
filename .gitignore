@@ -1,0 +1,10 @@
+# Node.js
+node_modules/
+
+# Environment variables
+.env
+
+# PNPM
+/pnpm-lock.yaml
+/pnpm-store/
+.pnpm/
