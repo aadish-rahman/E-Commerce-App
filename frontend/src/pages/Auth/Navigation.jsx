@@ -150,7 +150,7 @@ function Navigation() {
                 </li>
                 <li>
                   <Link
-                    to={"/admin/userList"}
+                    to={"/admin/userlist"}
                     className="block px-4 py-2 hover:bg-neutral-600"
                   >
                     Users

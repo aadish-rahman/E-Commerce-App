@@ -55,7 +55,7 @@ This is a full-stack e-commerce application with a backend and frontend. The app
    ```bash
    cd backend
 2. Install dependencies:
-  pnpm install
+ `pnpm install`
 
 3. Configure environment variables:
   Create a .env file in the /backend directory.
