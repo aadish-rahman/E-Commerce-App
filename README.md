@@ -58,10 +58,13 @@ This is a full-stack e-commerce application with a backend and frontend. The app
  `pnpm install`
 
 3. Configure environment variables:
-  Create a .env file in the /backend directory.
-  Add necessary environment variables (e.g., database connection string, JWT secret).
+  Create a .env file in the root directory.
+  Add necessary environment variables (e.g., database connection twine, JWT secret).
 
-4. Navigate to your base directory 
+  <img width="340" alt="image" src="https://github.com/aadish-rahman/E-Commerce-App/assets/152465910/6ac6868c-2b3e-45d2-b983-157c3cd5bbbc">
+
+
+5. Navigate to your base directory 
   run `pnpm run backend` or `pnpm run frontend` to run backend or frontend
 
 ## Contributing
