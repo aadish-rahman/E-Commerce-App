@@ -39,6 +39,24 @@ const UserList = () => {
     setEditableUserEmail(email);
   };
 
+  const updateHandler = async (id) => {
+    try {
+      await updateUser({
+        userId: id,
+        username: editableUserName,
+        email: editableUserEmail,
+      });
+
+      toast.success("Successfully Edited");
+
+      setEditableUserId(null);
+      refetch();
+    } catch (error) {
+      console.log(error);
+      toast.error(error.data.message || error.error);
+    }
+  };
+
   return (
     <div className="p-4">
       <h1 className="mb-4 text-2xl font-semibold text-white ml-[10rem]">
@@ -74,12 +92,12 @@ const UserList = () => {
                         <input
                           type="text"
                           value={editableUserName}
-                          onChange={(e) => setEditableUserId(e.target.value)}
+                          onChange={(e) => setEditableUserName(e.target.value)}
                           className="w-full p-2 border rounded-lg bg-neutral-800"
                         />
                         <button
                           onClick={() => updateHandler(user._id)}
-                          className="ml-2 bg-blue-500 text-white py-2 px-4 rounded-lg"
+                          className="px-4 py-2 ml-2 text-white bg-blue-500 rounded-lg"
                         >
                           <FaCheck />
                         </button>
@@ -101,14 +119,14 @@ const UserList = () => {
                     {editableUserId === user._id ? (
                       <div className="flex items-center">
                         <input
-                          type="text"
+                          type="email"
                           value={editableUserEmail}
                           onChange={(e) => setEditableUserEmail(e.target.value)}
                           className="w-full p-2 border rounded-lg bg-neutral-800"
                         />
                         <button
                           onClick={() => updateHandler(user._id)}
-                          className="ml-2 bg-blue-500 text-white py-2 px-4 rounded-lg"
+                          className="px-4 py-2 ml-2 text-white bg-blue-500 rounded-lg"
                         >
                           <FaCheck />
                         </button>
@@ -133,12 +151,12 @@ const UserList = () => {
                       <FaTimes style={{ color: "red" }} />
                     )}
                   </td>
-                  <td className="py-2 px-4  text-white">
+                  <td className="px-4 py-2 text-white">
                     {!user.isAdmin && (
                       <div className="flex">
                         <button
                           onClick={() => deleteHandler(user._id)}
-                          className="bg-red-600 hover:bg-red-950 text-white font-bold py-2 px-4 rounded"
+                          className="px-4 py-2 font-bold text-white bg-red-600 rounded hover:bg-red-950"
                         >
                           <FaTrash />
                         </button>

@@ -6,6 +6,7 @@ import path from "path";
 
 //utils
 import { connectDb } from "./config/db.js";
+import categoryRoutes from "./routes/categoryRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
@@ -21,3 +22,4 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
+app.use("api/category", categoryRoutes);
