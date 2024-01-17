@@ -22,4 +22,4 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
-app.use("api/category", categoryRoutes);
+app.use("/api/category", categoryRoutes);

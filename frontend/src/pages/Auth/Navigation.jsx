@@ -30,13 +30,13 @@ function Navigation() {
     setDropdownOpen(!dropDownOpen);
   };
 
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
-  };
+  // const toggleSidebar = () => {
+  //   setShowSidebar(!showSidebar);
+  // };
 
-  const closeSidebar = () => {
-    setShowSidebar(false);
-  };
+  // const closeSidebar = () => {
+  //   setShowSidebar(false);
+  // };
 
   const [logoutApiCall] = useLogoutMutation();
 
@@ -126,7 +126,7 @@ function Navigation() {
                 </li>
                 <li>
                   <Link
-                    to={"/admin/productList"}
+                    to={"/admin/productlist"}
                     className="block px-4 py-2 hover:bg-neutral-600"
                   >
                     Products
@@ -134,7 +134,7 @@ function Navigation() {
                 </li>
                 <li>
                   <Link
-                    to={"/admin/categoryList"}
+                    to={"/admin/categorylist"}
                     className="block px-4 py-2 hover:bg-neutral-600"
                   >
                     Category
@@ -142,7 +142,7 @@ function Navigation() {
                 </li>
                 <li>
                   <Link
-                    to={"/admin/orderList"}
+                    to={"/admin/orderlist"}
                     className="block px-4 py-2 hover:bg-neutral-600"
                   >
                     Orders

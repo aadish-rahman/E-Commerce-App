@@ -1,5 +1,5 @@
-import asyncHandler from "../middlewares/asyncHandler";
-import Category from "../models/categoryModel";
+import asyncHandler from "../middlewares/asyncHandler.js";
+import Category from "../models/categoryModel.js";
 
 const createCategory = asyncHandler(async (req, res) => {
   try {
@@ -35,7 +35,7 @@ const updateCategory = asyncHandler(async (req, res) => {
     category.name = name;
 
     const updatedCategory = await category.save();
-    res.json(updateCategory);
+    res.json(updatedCategory);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Internal Server Error" });

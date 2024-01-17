@@ -62,7 +62,7 @@ const UserList = () => {
       <h1 className="mb-4 text-2xl font-semibold text-white ml-[10rem]">
         Users
       </h1>
-      ;
+
       {isLoading ? (
         <Loader />
       ) : error ? (
