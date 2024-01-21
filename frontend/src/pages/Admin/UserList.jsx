@@ -39,12 +39,19 @@ const UserList = () => {
     setEditableUserEmail(email);
   };
 
-  const updateHandler = async (id) => {
+  const updateHandler = async (id, isAdmin) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(editableUserEmail)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
     try {
       await updateUser({
         userId: id,
         username: editableUserName,
         email: editableUserEmail,
+        isAdmin: isAdmin,
       });
 
       toast.success("Successfully Edited");
@@ -93,10 +100,10 @@ const UserList = () => {
                           type="text"
                           value={editableUserName}
                           onChange={(e) => setEditableUserName(e.target.value)}
-                          className="w-full p-2 border rounded-lg bg-neutral-800"
+                          className="w-full p-2 text-white border rounded-lg bg-neutral-800"
                         />
                         <button
-                          onClick={() => updateHandler(user._id)}
+                          onClick={() => updateHandler(user._id, user.isAdmin)}
                           className="px-4 py-2 ml-2 text-white bg-blue-500 rounded-lg"
                         >
                           <FaCheck />
@@ -119,13 +126,14 @@ const UserList = () => {
                     {editableUserId === user._id ? (
                       <div className="flex items-center">
                         <input
-                          type="email"
+                          type="text"
                           value={editableUserEmail}
                           onChange={(e) => setEditableUserEmail(e.target.value)}
-                          className="w-full p-2 border rounded-lg bg-neutral-800"
+                          className="w-full p-2 text-white border rounded-lg bg-neutral-800"
                         />
+
                         <button
-                          onClick={() => updateHandler(user._id)}
+                          onClick={() => updateHandler(user._id, user.isAdmin)}
                           className="px-4 py-2 ml-2 text-white bg-blue-500 rounded-lg"
                         >
                           <FaCheck />
