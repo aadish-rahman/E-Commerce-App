@@ -143,8 +143,43 @@ const addProductReview = asyncHandler(async (req, res) => {
 
       const review = {
         name: req.user.username,
+        rating: Number(rating),
+        comment,
+        user: req.user._id,
       };
+
+      product.reviews.push(review);
+      product.numReviews = product.reviews.length;
+      product.rating =
+        product.reviews.reduce((acc, item) => item.rating + acc, 0) /
+        product.reviews.length;
+
+      await product.save();
+      res.status(201).json({ message: "Review Added" });
+    } else {
+      res.status(404);
+      throw new Error("Product not Found");
     }
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error.message);
+  }
+});
+
+const fetchTopProducts = asyncHandler(async (req, res) => {
+  try {
+    const products = await Product.find({}).sort({ rating: -1 }).limit(6);
+    res.json(products);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error.message);
+  }
+});
+
+const fetchNewProducts = asyncHandler(async (req, res) => {
+  try {
+    const products = await Product.find({}).sort({ _id: -1 }).limit(6);
+    res.json(products);
   } catch (error) {
     console.log(error);
     res.status(400).json(error.message);
@@ -155,8 +190,10 @@ export {
   addProduct,
   addProductReview,
   fetchAllProducts,
+  fetchNewProducts,
   fetchProductByID,
   fetchProducts,
+  fetchTopProducts,
   removeProduct,
   updateProductDetails,
 };

@@ -8,6 +8,7 @@ import {
   useFetchCategoriesQuery,
   useUpdateCategoryMutation,
 } from "../../redux/api/categoryApiSlice";
+import AdminMenu from "./AdminMenu";
 
 const CategoryList = () => {
   const { data: categories, refetch } = useFetchCategoriesQuery();
@@ -96,7 +97,7 @@ const CategoryList = () => {
 
   return (
     <div className="ml-[10rem] flex flex-col md:flex-row">
-      {/* {AdminMenu} */}
+      {<AdminMenu />}
       <div className="p-3 md:w-3/4 ">
         <div className="h-12 ml-[1rem] text-2xl">Manage Categories</div>
         <CategoryForm
@@ -111,7 +112,7 @@ const CategoryList = () => {
           {categories?.map((category) => (
             <div key={category._id}>
               <button
-                className="border border-pink-500 rounded-lg px-4 py-2 m-3 text-pink-500 bg-neutral-850 hover:bg-pink-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50"
+                className="px-4 py-2 m-3 text-pink-500 border border-pink-500 rounded-lg bg-neutral-850 hover:bg-pink-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50"
                 onClick={() => {
                   setModalVisible(true);
                   setSelectedCategory(category);

@@ -8,6 +8,7 @@ import {
   useGetUsersQuery,
   useUpdateUserMutation,
 } from "../../redux/api/usersApiSlice";
+import AdminMenu from "./AdminMenu";
 
 const UserList = () => {
   const { data, refetch, isLoading, error } = useGetUsersQuery();
@@ -78,7 +79,7 @@ const UserList = () => {
         </Message>
       ) : (
         <div className="flex flex-col md:flex-row">
-          {/* AdminMenu */}
+          <AdminMenu />
           <table className="w-full mx-auto md:w-4/5">
             <thead>
               <tr>
