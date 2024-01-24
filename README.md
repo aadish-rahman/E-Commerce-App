@@ -50,10 +50,10 @@ This is a full-stack e-commerce application with a backend and frontend. The app
 
 ### Backend
 
-1. Navigate to the `/backend` directory:
+1. Navigate to the `/frontend` directory:
 
    ```bash
-   cd backend
+   cd frontend
 2. Install dependencies:
  `pnpm install`
 
@@ -63,8 +63,7 @@ This is a full-stack e-commerce application with a backend and frontend. The app
 
   <img width="340" alt="image" src="https://github.com/aadish-rahman/E-Commerce-App/assets/152465910/6ac6868c-2b3e-45d2-b983-157c3cd5bbbc">
 
-
-5. Navigate to your base directory 
+4. Navigate to your base directory 
   run `pnpm run backend` or `pnpm run frontend` to run backend or frontend
 
 ## Contributing
