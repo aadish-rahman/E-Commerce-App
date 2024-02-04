@@ -6,6 +6,7 @@ import App from "./App.jsx";
 import PrivateRoutes from "./components/PrivateRoutes.jsx";
 import "./index.css";
 
+import Home from "./Home.jsx";
 import AdminRoute from "./pages/Admin/AdminRoute.jsx";
 import AllProducts from "./pages/Admin/AllProducts";
 import CategoryList from "./pages/Admin/CategoryList.jsx";
@@ -14,6 +15,8 @@ import ProductUpdate from "./pages/Admin/ProductUpdate.jsx";
 import UserList from "./pages/Admin/UserList.jsx";
 import Login from "./pages/Auth/Login.jsx";
 import Register from "./pages/Auth/Register.jsx";
+import Favorites from "./pages/Products/Favorites.jsx";
+import ProductDetails from "./pages/Products/ProductDetails.jsx";
 import Profile from "./pages/User/Profile.jsx";
 import store from "./redux/store.js";
 
@@ -22,6 +25,10 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route index={true} path="/" element={<Home />} />
+      <Route path="/favorites" element={<Favorites />} />
+      <Route path="/product/:id" element={<ProductDetails />} />
+
       <Route path="" element={<PrivateRoutes />}>
         <Route path="/profile" element={<Profile />} />
       </Route>

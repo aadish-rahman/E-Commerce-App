@@ -59,7 +59,8 @@ const ProductUpdate = () => {
       });
       setImage(res.image);
     } catch (err) {
-      toast.success("Item added successfully", {
+      console.error("Error uploading image:", err);
+      toast.error("Image upload failed. Try again.", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 2000,
       });
@@ -68,6 +69,42 @@ const ProductUpdate = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!name.trim()) {
+      toast.error("Please fill the Name field appropriately");
+      return;
+    }
+
+    if (!price || isNaN(price) || price <= 0) {
+      toast.error("Please fill the Price field appropriately");
+      return;
+    }
+
+    if (!quantity || isNaN(quantity) || quantity <= 0) {
+      toast.error("Please fill the Quantity field appropriately");
+      return;
+    }
+
+    if (!brand.trim()) {
+      toast.error("Please fill the Brand field appropriately");
+      return;
+    }
+
+    if (!description.trim()) {
+      toast.error("Please fill the Description field appropriately");
+      return;
+    }
+
+    if (stock < 0) {
+      toast.error("Please fill the Count In Stock field appropriately");
+      return;
+    }
+
+    if (!category) {
+      toast.error("Please select a Category");
+      return;
+    }
+
     try {
       const formData = new FormData();
       formData.append("image", image);
@@ -143,7 +180,7 @@ const ProductUpdate = () => {
             )}
 
             <div className="mb-3">
-              <label className="block w-full px-4  font-bold text-center text-white rounded-lg cursor-pointer py-11">
+              <label className="block w-full px-4 font-bold text-center text-white rounded-lg cursor-pointer py-11">
                 {image ? image.name : "Upload image"}
                 <input
                   type="file"

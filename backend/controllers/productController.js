@@ -1,3 +1,5 @@
+import fs from "fs/promises";
+import path from "path";
 import asyncHandler from "../middlewares/asyncHandler.js";
 import Product from "../models/productModel.js";
 
@@ -59,7 +61,6 @@ const updateProductDetails = asyncHandler(async (req, res) => {
     );
 
     await product.save();
-
     res.json(product);
   } catch (error) {
     console.log(error);
@@ -79,7 +80,7 @@ const removeProduct = asyncHandler(async (req, res) => {
 
 const fetchProducts = asyncHandler(async (req, res) => {
   try {
-    const pageSize = 6;
+    const pageSize = 8;
     const keyword = req.query.keyword
       ? { name: { $regex: req.query.keyword, $options: "i" } }
       : {};
@@ -168,7 +169,7 @@ const addProductReview = asyncHandler(async (req, res) => {
 
 const fetchTopProducts = asyncHandler(async (req, res) => {
   try {
-    const products = await Product.find({}).sort({ rating: -1 }).limit(6);
+    const products = await Product.find({}).sort({ rating: -1 }).limit(4);
     res.json(products);
   } catch (error) {
     console.log(error);
@@ -178,7 +179,7 @@ const fetchTopProducts = asyncHandler(async (req, res) => {
 
 const fetchNewProducts = asyncHandler(async (req, res) => {
   try {
-    const products = await Product.find({}).sort({ _id: -1 }).limit(6);
+    const products = await Product.find({}).sort({ _id: -1 }).limit(4);
     res.json(products);
   } catch (error) {
     console.log(error);

@@ -21,13 +21,13 @@ const AllProducts = () => {
 
   return (
     <>
-      <div className="container mx-[9rem]">
+      <div className="container mx-[10rem]">
         <div className="flex flex-col md:flex-row">
           <div className="p-3">
             <div className="ml-[2rem] text-xl font-bold h-12">
               All Products ({products.length})
             </div>
-            <div className="flex flex-wrap items-center justify-around ">
+            <div className="grid grid-cols-2 gap-10 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
               {products.map((product) => (
                 <Link
                   key={product._id}
@@ -38,7 +38,7 @@ const AllProducts = () => {
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-[10rem] object-cover"
+                      className="w-[12rem] object-cover"
                     />
                     <div className="flex flex-col justify-around p-4">
                       <div className="flex justify-between">

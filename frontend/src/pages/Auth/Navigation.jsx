@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useLogoutMutation } from "../../redux/api/usersApiSlice";
 import { logout } from "../../redux/features/auth/authSlice";
+import FavoritesCount from "../Products/FavoritesCount";
 import "./Navigation.css";
 
 function Navigation() {
@@ -65,28 +66,29 @@ function Navigation() {
           className="flex items-center transition-transform transform hover:translate-x-2"
         >
           <AiOutlineHome className="mr-2 mt-[3rem]" size={26} />
-          <spa className="hidden nav-item-name mt-[3rem]">HOME</spa>
+          <span className="hidden nav-item-name mt-[3rem]">HOME</span>
         </Link>
         <Link
           to={"/shop"}
           className="flex items-center transition-transform transform hover:translate-x-2"
         >
           <AiOutlineShopping className="mr-2 mt-[3rem]" size={26} />
-          <spa className="hidden nav-item-name mt-[3rem]">SHOP</spa>
+          <span className="hidden nav-item-name mt-[3rem]">SHOP</span>
         </Link>
         <Link
           to={"/cart"}
           className="flex items-center transition-transform transform hover:translate-x-2"
         >
           <AiOutlineShoppingCart className="mr-2 mt-[3rem]" size={26} />
-          <spa className="hidden nav-item-name mt-[3rem]">CART</spa>
+          <span className="hidden nav-item-name mt-[3rem]">CART</span>
         </Link>
         <Link
           to={"/favorites"}
           className="flex items-center transition-transform transform hover:translate-x-2"
         >
           <FaHeart className="mr-2 mt-[3rem]" size={26} />
-          <spa className="hidden nav-item-name mt-[3rem]">FAVORITES</spa>
+          <span className="hidden nav-item-name mt-[3rem]">FAVORITES</span>
+          <FavoritesCount />
         </Link>
       </div>
 
@@ -187,7 +189,7 @@ function Navigation() {
               className="flex items-center transition-transform transform hover:translate-x-2"
             >
               <AiOutlineLogin className="mr-2 mt-[3rem]" size={26} />
-              <spa className="hidden nav-item-name mt-[3rem]">LOGIN</spa>
+              <span className="hidden nav-item-name mt-[3rem]">LOGIN</span>
             </Link>
           </li>
           <li>
@@ -196,7 +198,7 @@ function Navigation() {
               className="flex items-center transition-transform transform hover:translate-x-2"
             >
               <AiOutlineUserAdd className="mr-2 mt-[3rem]" size={26} />
-              <spa className="hidden nav-item-name mt-[3rem]">REGISTER</spa>
+              <span className="hidden nav-item-name mt-[3rem]">REGISTER</span>
             </Link>
           </li>
         </ul>
