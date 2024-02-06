@@ -16,7 +16,7 @@ import {
   useCreateReviewMutation,
   useGetProductDetailsQuery,
 } from "../../redux/api/productApiSlice";
-// import { addToCart } from "../../redux/features/cart/cartSlice";
+import { addToCart } from "../../redux/features/cart/cartSlice";
 import HeartIcon from "./HeartIcon";
 
 import ProductTabs from "./ProductTabs";
@@ -59,10 +59,10 @@ const ProductDetails = () => {
     }
   };
 
-  //   const addToCartHandler = () => {
-  //     dispatch(addToCart({ ...product, qty }));
-  //     navigate("/cart");
-  //   };
+  const addToCartHandler = () => {
+    dispatch(addToCart({ ...product, qty }));
+    navigate("/cart");
+  };
 
   return (
     <>
@@ -111,7 +111,7 @@ const ProductDetails = () => {
                   </h1>
                   <h1 className="flex items-center mb-6 w-[20rem]">
                     <FaClock className="mr-2 text-white" /> Added:{" "}
-                    {moment(product.createAt).fromNow()}
+                    {moment(product.createdAt).fromNow()}
                   </h1>
                   <h1 className="flex items-center mb-6">
                     <FaStar className="mr-2 text-white" /> Reviews:{" "}
@@ -159,7 +159,7 @@ const ProductDetails = () => {
 
               <div className="mt-3 btn-container">
                 <button
-                  //   onClick={addToCartHandler}
+                  onClick={addToCartHandler}
                   disabled={product.countInStock === 0}
                   className="px-4 py-2 mt-4 text-white bg-pink-600 rounded-lg md:mt-0"
                 >
