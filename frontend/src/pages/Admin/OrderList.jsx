@@ -21,13 +21,13 @@ const OrderList = () => {
 
           <thead className="w-full border">
             <tr className="mb-[5rem]">
-              <th className="text-left pl-1">ITEMS</th>
-              <th className="text-left pl-1">ID</th>
-              <th className="text-left pl-1">USER</th>
-              <th className="text-left pl-1">DATA</th>
-              <th className="text-left pl-1">TOTAL</th>
-              <th className="text-left pl-1">PAID</th>
-              <th className="text-left pl-1">DELIVERED</th>
+              <th className="pl-1 text-left">ITEMS</th>
+              <th className="pl-1 text-left">ID</th>
+              <th className="pl-1 text-left">USER</th>
+              <th className="pl-1 text-left">DATA</th>
+              <th className="pl-1 text-left">TOTAL</th>
+              <th className="pl-1 text-left">PAID</th>
+              <th className="pl-1 text-left">DELIVERED</th>
               <th></th>
             </tr>
           </thead>
